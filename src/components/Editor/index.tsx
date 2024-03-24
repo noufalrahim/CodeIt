@@ -52,7 +52,7 @@ export default function index() {
         <button className='bg-[#333333] text-white py-1 px-4 rounded-md hover:bg-[#2a2a2a]' onClick={handleRun}>Run</button>
       </div>
       <div className='flex flex-row'>
-        <div className='mt-20 mx-5 w-3/5'>
+        <div className='mt-20 mx-5 w-4/6'>
           <Editor
             className='p-2 rounded-lg bg-[#333333] border-2 h-[35rem] border-gray-800'
             height="29rem"
@@ -63,7 +63,7 @@ export default function index() {
             onChange={(value: any) => setValue(value)}
           />
         </div>
-        <div className='mt-20 bg-black w-2/5 mr-5'>
+        <div className='mt-20 bg-black w-2/6 mr-5'>
           <Console loading={isLoading} output={output} />
         </div>
       </div>
