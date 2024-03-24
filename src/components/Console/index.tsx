@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import '@fontsource/special-elite';
 
-export default function Console({ output, loading }: { output: string, loading: boolean }) {
+export default function Console({ output, loading, error }: { output: string, loading: boolean, error: string }) {
     const consoleRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -22,7 +22,13 @@ export default function Console({ output, loading }: { output: string, loading: 
                     </div>
                 ) : (
                     <div className='p-5'>
-                        <p className='text-white text-sm'>{output}</p>
+                        {
+                            error != ''? (
+                                <pre className='text-red-500 text-sm'>{error}</pre>
+                            ) : (
+                                <pre className='text-white text-sm'>{output}</pre>
+                            )
+                        }
                     </div>
                 )
             }

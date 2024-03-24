@@ -13,6 +13,7 @@ export default function index() {
   const [output, setOutput] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
   const [extension, setExtension] = React.useState('c' as string);
+  const [error, setError] = React.useState('' as string);
 
   const onMount = (editor: any) => {
     editorRef.current = editor;
@@ -32,6 +33,7 @@ export default function index() {
     let out;
     try {
       out = await executeCode(language, sourceCode);
+      console.log(out);
     }
     catch (err) {
       console.log(err);
@@ -40,6 +42,8 @@ export default function index() {
     setIsLoading(false);
     console.log(out.run);
     setOutput(out.run.output);
+    console.log(out.compile.stderr);
+    setError(out.compile.stderr);
   }
 
   return (
@@ -64,7 +68,7 @@ export default function index() {
           />
         </div>
         <div className='mt-20 bg-black w-2/6 mr-5'>
-          <Console loading={isLoading} output={output} />
+          <Console loading={isLoading} output={output} error={error}/>
         </div>
       </div>
       
