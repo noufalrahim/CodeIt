@@ -8,7 +8,7 @@ export default async function executeCode(lang: any, code: any) {
         "version": language!.version,
         "files": [
             {
-                "name": "main.js",
+                "name": "main",
                 "content": code
             }
         ]
