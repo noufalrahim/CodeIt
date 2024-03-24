@@ -11,7 +11,7 @@ export default function Console({ output, loading }: { output: string, loading: 
     }, [output]);
 
     return (
-        <div ref={consoleRef} className='w-[27.5rem] rounded-md bg-[#262626] h-[29rem] overflow-auto'>
+        <div ref={consoleRef} className='w-[27.5rem] rounded-md bg-[#262626] h-[35rem] overflow-auto'>
             <div className='px-5 bg-[#333333] py-5'>
                 <p className='text-gray-300 text-sm'>Terminal</p>
             </div>
