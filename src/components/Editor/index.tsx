@@ -54,7 +54,7 @@ export default function index() {
       <div className='flex flex-row'>
         <div className='mt-20 mx-5 w-3/5'>
           <Editor
-            className='p-2 rounded-lg bg-[#333333] border-2 min-h-screen border-gray-800'
+            className='p-2 rounded-lg bg-[#333333] border-2 h-[35rem] border-gray-800'
             height="29rem"
             language={language}
             theme='vs-dark'
