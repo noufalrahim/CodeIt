@@ -11,17 +11,17 @@ export default function Console({ output, loading, error }: { output: string, lo
     }, [output]);
 
     return (
-        <div ref={consoleRef} className='w-[27.5rem] rounded-md bg-[#262626] h-[21rem] overflow-auto'>
-            <div className='px-5 bg-[#333333] py-5 w-[60rem]'>
+        <div className='w-[27.5rem] rounded-md bg-[#262626] h-[21rem]'>
+            <div className='px-5 bg-[#333333] rounded-t-md py-5'>
                 <p className='text-gray-300 text-sm'>Terminal</p>
             </div>
             {
                 loading ? (
-                    <div className='p-5'>
+                    <div ref={consoleRef} className='h-[17.5rem] p-5 overflow-auto'>
                         <p className='text-white text-sm'>Compiling...</p>
                     </div>
                 ) : (
-                    <div className='p-5'>
+                    <div ref={consoleRef} className='p-5 overflow-auto h-[17.2rem] '>
                         {
                             error != ''? (
                                 <pre className='text-red-500 text-sm'>{error}</pre>
