@@ -1,7 +1,7 @@
 import { BASEURL, Languages, RUNURL } from "@/appConstants";
 import axios from "axios";
 
-export default async function executeCode(lang: any, code: any, inputA: any) {
+export default async function executeCode(lang: any, code: any, input: any) {
     const language = Languages.find((l) => l.language === lang);
     const response = await axios.post(`${BASEURL}${RUNURL}`, {
         "language": lang,
@@ -12,7 +12,7 @@ export default async function executeCode(lang: any, code: any, inputA: any) {
                 "content": code
             }
         ],
-        "stdin": inputA 
+        "stdin": input 
     });
 
     return response.data;
