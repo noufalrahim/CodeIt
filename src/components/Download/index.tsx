@@ -9,7 +9,8 @@ interface DownloadProps {
 export default function Download({value, extension}: DownloadProps) {
     const downLoadHandler = () => {
         if(!value) return alert('No content to download');
-        const fileName = window.prompt('Enter file name (without extension):');
+        let fileName = window.prompt('Enter file name (without extension):');
+        if(!fileName) fileName = 'file';
         const fileContent = value;
         const blob = new Blob([fileContent], { type: 'text/plain' });
         const link = document.createElement('a');
