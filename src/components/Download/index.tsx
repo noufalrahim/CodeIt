@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaDownload, FaFileDownload } from 'react-icons/fa';
+import { FaFileDownload } from 'react-icons/fa';
 
 interface DownloadProps {
     value: string;
