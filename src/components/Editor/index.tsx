@@ -5,6 +5,7 @@ import Console from '../Console';
 import executeCode from '@/pages/api/ExecuteCode';
 import Download from '../Download';
 import { Languages } from '@/appConstants';
+import InputBox from '../InputBox';
 
 export default function index() {
   const [value, setValue] = React.useState('');
@@ -14,6 +15,7 @@ export default function index() {
   const [isLoading, setIsLoading] = React.useState(false);
   const [extension, setExtension] = React.useState('c' as string);
   const [error, setError] = React.useState('' as string);
+  const [stdin, setStdin] = React.useState('' as string);
 
   const onMount = (editor: any) => {
     editorRef.current = editor;
@@ -32,7 +34,7 @@ export default function index() {
     setIsLoading(true);
     let out;
     try {
-      out = await executeCode(language, sourceCode);
+      out = await executeCode(language, sourceCode, stdin);
       console.log(out);
     }
     catch (err) {
@@ -44,6 +46,11 @@ export default function index() {
     setOutput(out.run.output);
     console.log(out.compile.stderr);
     setError(out.compile.stderr);
+  }
+
+  const handleInput = (input: string) => {
+    console.log(input);
+    setStdin(input);
   }
 
   return (
@@ -68,6 +75,7 @@ export default function index() {
           />
         </div>
         <div className='mt-20 bg-black w-2/6 mr-5'>
+          <InputBox value={stdin} setValue={handleInput}/>
           <Console loading={isLoading} output={output} error={error}/>
         </div>
       </div>
