@@ -17,6 +17,16 @@ export default function index() {
   const [error, setError] = React.useState('' as string);
   const [stdin, setStdin] = React.useState('' as string);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const code = localStorage.getItem('code');
+      if (code) {
+        setValue(code);
+      }
+    }
+  },[]);
+  
+
   const onMount = (editor: any) => {
     editorRef.current = editor;
     editor.focus();
@@ -53,6 +63,11 @@ export default function index() {
     setStdin(input);
   }
 
+  const handleOnChange = (value: any) => {
+    localStorage.setItem('code', value);
+    setValue(value);
+  }
+
   return (
     <div>
       <div className='mx-5 mt-5 absolute flex z-10'>
@@ -71,7 +86,7 @@ export default function index() {
             theme='vs-dark'
             onMount={onMount}
             value={value}
-            onChange={(value: any) => setValue(value)}
+            onChange={(value: any) => handleOnChange(value)}
           />
         </div>
         <div className='mt-20 bg-black w-2/6 mr-5'>
