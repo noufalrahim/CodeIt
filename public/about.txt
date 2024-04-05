@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Figtree
+- Font Author: Copyright 2022 The Figtree Project Authors (https://github.com/erikdkennedy/figtree)
+- Font Source: https://fonts.gstatic.com/s/figtree/v5/_Xmz-HUzqDCFdgfMsYiV_F7wfS-Bs_d_QF5ewkEU4HTy.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

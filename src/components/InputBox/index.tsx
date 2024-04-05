@@ -2,9 +2,19 @@ import React from 'react'
 
 export default function InputBox({value, setValue}: {value: string, setValue: any}) {
 
+    React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+          const inp = localStorage.getItem('inputs');
+          if (inp) {
+            setValue(inp);
+          }
+        }
+      },[]);
+
     const handleValueChange = (e: any) => {
         console.log(e.target.value);
         setValue(e.target.value);
+        localStorage.setItem('inputs', e.target.value);
     }
 
     return (
