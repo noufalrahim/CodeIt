@@ -6,6 +6,7 @@ export default function LanguageSelector({Language, setLanguage}: {Language: str
     const [selectedLanguage, setSelectedLanguage] = React.useState(Language);
 
     const handleLang = (lang: any) => {
+        localStorage.setItem('language', lang.language);
         setSelectedLanguage(lang.language);
         setLanguage(lang.language);
         setShow(false);

@@ -9,19 +9,25 @@ import InputBox from '../InputBox';
 
 export default function index() {
   const [value, setValue] = React.useState('');
-  const [language, setLanguage] = React.useState('c');
+  const [language, setLanguage] = React.useState('');
   const editorRef = React.useRef(null);
   const [output, setOutput] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
-  const [extension, setExtension] = React.useState('c' as string);
+  const [extension, setExtension] = React.useState('');
   const [error, setError] = React.useState('' as string);
   const [stdin, setStdin] = React.useState('' as string);
 
   React.useEffect(() => {
     if (typeof window !== 'undefined') {
       const code = localStorage.getItem('code');
+      const language = localStorage.getItem('language');
+      console.log(language);
       if (code) {
         setValue(code);
+      }
+      if(language) {
+        setLanguage(language);
+        setExtension(Languages.find((l) => l.language === language)?.extentions as string);
       }
     }
   },[]);
@@ -71,7 +77,12 @@ export default function index() {
   return (
     <div>
       <div className='mx-5 mt-5 absolute flex z-10'>
-        <LanguageSelector Language={language} setLanguage={handleLanguageChange} />
+        {
+          language && <LanguageSelector Language={language} setLanguage={handleLanguageChange} />
+        }
+        {
+          !language && <LanguageSelector Language='Select Language' setLanguage={handleLanguageChange} />
+        }
       </div>
       <div className='absolute top-5 right-5 flex flex-row'>
         <Download extension={extension} value={value} />
