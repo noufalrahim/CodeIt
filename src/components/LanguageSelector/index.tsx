@@ -20,7 +20,7 @@ export default function LanguageSelector({Language, setLanguage}: {Language: str
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
             </svg>
             </button>
-            <div id="dropdown" className={`z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ${show ? '' : 'hidden'}`}>
+            <div id="dropdown" className={`z-10 absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 ${show ? '' : 'hidden'}`}>
                 <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                     {Languages.map((lang: any, index: any) => (
                         <li onClick={() => handleLang(lang)} key={index} className='hover:bg-black mx-2 rounded-md'>
