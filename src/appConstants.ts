@@ -23,16 +23,16 @@ export const Languages = [
         "runtime": "gcc",
         "extentions": "c"
     },
-    {
-        "language": "c++",
-        "version": "10.2.0",
-        "aliases": [
-            "cpp",
-            "g++"
-        ],
-        "runtime": "gcc",
-        "extentions": "cpp"
-    },
+    // {
+    //     "language": "c++",
+    //     "version": "10.2.0",
+    //     "aliases": [
+    //         "cpp",
+    //         "g++"
+    //     ],
+    //     "runtime": "gcc",
+    //     "extentions": "cpp"
+    // },
     {
         "language": "python",
         "version": "3.10.0",
